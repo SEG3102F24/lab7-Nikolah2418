@@ -1,0 +1,37 @@
+<div class="container">
+  <h2>Author Search</h2>
+  <form [formGroup]="authorForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="authorId">Author ID:</label>
+      <input type="text" 
+             id="authorId" 
+             formControlName="authorId" 
+             class="form-control"
+             placeholder="Enter author ID">
+    </div>
+    <button type="submit" 
+            class="btn btn-primary mt-3"
+            [disabled]="!authorForm.valid">
+      Search
+    </button>
+  </form>
+
+  <div *ngIf="errorMessage" class="alert alert-danger mt-3">
+    {{ errorMessage }}
+  </div>
+
+  <div *ngIf="selectedAuthor" class="mt-3">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{selectedAuthor.firstName}} {{selectedAuthor.lastName}}</h5>
+        <p *ngIf="selectedAuthor.bio">Bio: {{selectedAuthor.bio.biodata}}</p>
+        <h6>Books:</h6>
+        <ul class="list-group">
+          <li class="list-group-item" *ngFor="let book of selectedAuthor.books">
+            {{book.title}}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

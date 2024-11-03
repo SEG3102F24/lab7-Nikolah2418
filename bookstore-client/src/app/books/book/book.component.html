@@ -1,0 +1,12 @@
+<div class="container" *ngIf="selectedBook">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{selectedBook.title}}</h5>
+        <p class="card-text">Category: {{selectedBook.category}}</p>
+        <p class="card-text">ISBN: {{selectedBook.isbn}}</p>
+        <p class="card-text">Cost: ${{selectedBook.cost}}</p>
+        <p class="card-text">Year: {{selectedBook.year}}</p>
+        <p class="card-text">Description: {{selectedBook.description}}</p>
+      </div>
+    </div>
+  </div>
